@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>RefBoard</title>
+<meta name="description" content="Quadro de imagens de referência para iPad, compatível com arquivos .pur do PureRef.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="RefBoard">
+<meta name="theme-color" content="#202022">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-new" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M12 11v6M9 14h6"/></symbol>
+  <symbol id="i-open" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-import" viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="14" rx="2"/><path d="M3 17l4-4 3 3 2-2 5 5"/><path d="M19 2v6M16 5h6"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M12 3v11M8 10l4 4 4-4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-saveas" viewBox="0 0 24 24"><path d="M12 3v8M8.5 7.5L12 11l3.5-3.5"/><path d="M4 13v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M8 16.5h.01M12 16.5h.01M16 16.5h.01"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-paste" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 12h6M9 16h4"/></symbol>
+  <symbol id="i-fit" viewBox="0 0 24 24"><path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4"/><rect x="9" y="9" width="6" height="6" rx="1"/></symbol>
+  <symbol id="i-opacity" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></symbol>
+  <symbol id="i-select" viewBox="0 0 24 24"><path d="M6 3l12 9-5.5 1.2L15 19l-2.5 1-2.5-5.7L6 18z"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M12 3l-3 3M12 3l3 3M12 21l-3-3M12 21l3-3M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M8 6L3 11l5 5"/><path d="M3 11h11a6 6 0 0 1 0 12h-2"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 7V4h4v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-rotr" viewBox="0 0 24 24"><rect x="9" y="12" width="8" height="8" rx="1"/><path d="M5 12a7 7 0 0 1 7-7h3M12 2l3 3-3 3"/></symbol>
+  <symbol id="i-rotl" viewBox="0 0 24 24"><g transform="matrix(-1 0 0 1 24 0)"><rect x="7" y="12" width="8" height="8" rx="1"/><path d="M5 12a7 7 0 0 1 7-7h3M12 2l3 3-3 3"/></g></symbol>
+  <symbol id="i-fliph" viewBox="0 0 24 24"><path d="M12 3v18" stroke-dasharray="2 3"/><path d="M9 7L4 12l5 5z"/><path d="M15 7l5 5-5 5z"/></symbol>
+  <symbol id="i-flipv" viewBox="0 0 24 24"><path d="M3 12h18" stroke-dasharray="2 3"/><path d="M7 9l5-5 5 5z"/><path d="M7 15l5 5 5-5z"/></symbol>
+  <symbol id="i-smaller" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5M8.5 11h5"/></symbol>
+  <symbol id="i-bigger" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5M8.5 11h5M11 8.5v5"/></symbol>
+  <symbol id="i-dup" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2M14 11v6M11 14h6"/></symbol>
+  <symbol id="i-front" viewBox="0 0 24 24"><path d="M15 9h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-3"/><rect x="4" y="4" width="11" height="11" rx="2" fill="currentColor"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><rect x="4" y="4" width="11" height="11" rx="2"/><path d="M15 9h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-3z" fill="currentColor"/></symbol>
+  <symbol id="i-all" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="3 3"/><path d="M8.5 12.5l2.5 2.5 4.5-5.5"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 5v5h5"/><path d="M4.6 10A8 8 0 1 1 5 16"/></symbol>
+  <symbol id="i-cut" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8 7.5L20 18M8 16.5L20 6"/></symbol>
+</svg>
+
+<canvas id="board" aria-label="Quadro de referências"></canvas>
+
+<div id="empty" hidden>
+  <h1>Quadro vazio</h1>
+  <p>Importe imagens, cole o que você copiou ou arraste de outro app.</p>
+  <div class="empty-actions">
+    <button class="solid" data-act="import">Importar imagens</button>
+    <button class="ghost" data-act="open">Abrir quadro .pur</button>
+  </div>
+</div>
+
+<header id="top">
+  <div class="bar" id="topbar">
+    <button class="tb" data-act="new" title="Novo quadro"><svg><use href="#i-new"/></svg><span>Novo</span></button>
+    <button class="tb" data-act="open" title="Abrir um quadro .pur"><svg><use href="#i-open"/></svg><span>Abrir</span></button>
+    <button class="tb" data-act="import" title="Importar imagens ou PDF"><svg><use href="#i-import"/></svg><span>Importar</span></button>
+    <button class="tb" data-act="save" title="Salvar o quadro"><svg><use href="#i-save"/></svg><span>Salvar</span></button>
+    <button class="tb" data-act="saveas" title="Salvar com outro nome"><svg><use href="#i-saveas"/></svg><span>Salvar como</span></button>
+    <i class="sep"></i>
+    <button class="tb" data-act="copy" title="Copiar a seleção"><svg><use href="#i-copy"/></svg><span>Copiar</span></button>
+    <button class="tb" data-act="paste" title="Colar"><svg><use href="#i-paste"/></svg><span>Colar</span></button>
+    <i class="sep"></i>
+    <button class="tb" data-act="fit" title="Enquadrar tudo"><svg><use href="#i-fit"/></svg><span>Enquadrar</span></button>
+    <button class="tb" data-act="opacity" id="opacityBtn" title="Transparência das imagens"><svg><use href="#i-opacity"/></svg><span>Transparência</span></button>
+    <i class="sep"></i>
+    <button class="tb tool" data-tool="select" title="Selecionar e mover (V)"><svg><use href="#i-select"/></svg><span>Selecionar</span></button>
+    <button class="tb tool" data-tool="hand" title="Mover o quadro (H)"><svg><use href="#i-hand"/></svg><span>Mover</span></button>
+    <button class="tb tool" data-tool="pen" title="Caneta (P)"><svg><use href="#i-pen"/></svg><span>Caneta</span></button>
+  </div>
+  <div id="docname" title="Nome do quadro">Sem título</div>
+</header>
+
+<div class="panel" id="penPalette" hidden>
+  <div class="swatches" id="swatches"></div>
+  <label class="colorwell" title="Outra cor"><input type="color" id="penColor" value="#ed4d4d"></label>
+  <label class="slider"><span>Espessura</span><input type="range" id="penWidth" min="1" max="30" step="1" value="4"><output id="penWidthOut">4</output></label>
+  <label class="check"><input type="checkbox" id="fingerDraws" checked><span>Dedo desenha</span></label>
+  <button class="mini" data-act="undoStroke" title="Desfazer o último traço"><svg><use href="#i-undo"/></svg></button>
+  <button class="mini danger" data-act="clearStrokes" title="Apagar todos os traços"><svg><use href="#i-trash"/></svg></button>
+</div>
+
+<div class="panel" id="opacityPanel" hidden>
+  <div class="panel-title" id="opacityTarget">Todas as imagens</div>
+  <label class="slider"><input type="range" id="opacityRange" min="10" max="100" step="1" value="100"><output id="opacityOut">100%</output></label>
+  <div class="presets">
+    <button data-opacity="25">25%</button><button data-opacity="50">50%</button><button data-opacity="75">75%</button><button data-opacity="100">100%</button>
+  </div>
+</div>
+
+<footer id="bottom">
+  <div class="bar" id="selbar" hidden>
+    <button class="tb" data-act="rotl" title="Girar 90° para a esquerda"><svg><use href="#i-rotl"/></svg><span>Girar</span></button>
+    <button class="tb" data-act="rotr" title="Girar 90° para a direita"><svg><use href="#i-rotr"/></svg><span>Girar</span></button>
+    <button class="tb" data-act="fliph" title="Espelhar na horizontal"><svg><use href="#i-fliph"/></svg><span>Espelhar</span></button>
+    <button class="tb" data-act="flipv" title="Espelhar na vertical"><svg><use href="#i-flipv"/></svg><span>Espelhar</span></button>
+    <button class="tb" data-act="smaller" title="Diminuir 10%"><svg><use href="#i-smaller"/></svg><span>Menor</span></button>
+    <button class="tb" data-act="bigger" title="Aumentar 10%"><svg><use href="#i-bigger"/></svg><span>Maior</span></button>
+    <i class="sep"></i>
+    <button class="tb" data-act="dup" title="Duplicar"><svg><use href="#i-dup"/></svg><span>Duplicar</span></button>
+    <button class="tb" data-act="front" title="Trazer para a frente"><svg><use href="#i-front"/></svg><span>Frente</span></button>
+    <button class="tb" data-act="back" title="Enviar para trás"><svg><use href="#i-back"/></svg><span>Trás</span></button>
+    <button class="tb" data-act="all" title="Selecionar tudo"><svg><use href="#i-all"/></svg><span>Tudo</span></button>
+    <button class="tb" data-act="reset" title="Voltar ao tamanho e posição originais"><svg><use href="#i-reset"/></svg><span>Original</span></button>
+    <i class="sep"></i>
+    <button class="tb" data-act="cut" title="Recortar"><svg><use href="#i-cut"/></svg><span>Recortar</span></button>
+    <button class="tb danger" data-act="delete" title="Excluir"><svg><use href="#i-trash"/></svg><span>Excluir</span></button>
+  </div>
+  <div id="status"></div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<div id="busy" hidden><div class="spinner"></div><span id="busyText">Abrindo</span></div>
+<div id="dropHint" hidden>Solte para adicionar ao quadro</div>
+
+<dialog id="dialog">
+  <form method="dialog">
+    <h2 id="dlgTitle"></h2>
+    <p id="dlgText"></p>
+    <input id="dlgInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" hidden>
+    <div class="dlg-buttons" id="dlgButtons"></div>
+  </form>
+</dialog>
+
+<input type="file" id="pickBoard" hidden>
+<input type="file" id="pickImages" accept="image/*,application/pdf,.pdf" multiple hidden>
+
+<script src="pur.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
